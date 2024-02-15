@@ -11,6 +11,25 @@
   </head>
 
   <body>
+    <div class="navbar navbar-expand-sm navbar-light navbar-lewagon border-bottom px-3">
+      <div class="container-fluid">
+        <%= link_to lists_path(@lists), class:"navbar-brand" do %>
+          <%= image_tag "logo-bleu-carre.png", alt: "logo" %>
+        <% end %>
+      </div>
+    </div>
+
     <%= yield %>
+
+    <div class="footer mt-5">
+      <div class="footer-links">
+        <a href="https://github.com/Jasufr" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.instagram.com/jasu.fr/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/justin-etienne/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <div class="footer-copyright">
+        Copyright 2024
+      </div>
+    </div>
   </body>
 </html>

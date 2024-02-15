@@ -1,0 +1,44 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://static.vecteezy.com/system/resources/previews/029/783/698/large_2x/movie-night-at-home-cozy-intimate-casual-comfortable-romantic-free-photo.jpg);">
+  <div class="container">
+    <h1>YourMovieList</h1>
+    <p>Save movies and don't lose track of what you're watching.</p>
+    <a class="btn btn-outline-warning" href="#new-list-form">Create a new list</a>
+  </div>
+</div>
+<div class="container">
+  <h1 class="my-4">All your lists:</h1>
+  <div class="gridtest">
+
+      <% @lists.each do |list| %>
+      <div class="wrapper">
+        <div class="card front-face card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+          <%= link_to list.name, list_path(list) %>
+        </div>
+        <div class="card back-face card-category" style="background-color: yellow;">
+          <h1>this is the back</h1>
+        </div>
+      </div>
+
+      <% end %>
+
+  </div>
+
+  <p class="anchor" id="new-list-form"></p>
+  <h2 >New List</h2>
+  <%= simple_form_for @list do |f| %>
+    <%= f.input :name %>
+    <%= f.submit %>
+  <% end %>
+
+
+
+</div>
+
+
+  <%# <div class="cards">
+    <% @lists.each do |list| %>
+      <%# <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)"> %>
+        <%# <%= link_to list.name, list_path(list) %>
+      <%# </div> %>
+    <%# <% end %>
+  <%# </div> %>
