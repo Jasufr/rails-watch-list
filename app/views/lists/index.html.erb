@@ -7,31 +7,33 @@
 </div>
 <div class="container">
   <h1 class="my-4">All your lists:</h1>
-  <div class="gridtest">
+  <div class="cards">
 
       <% @lists.each do |list| %>
       <div class="wrapper">
         <div class="card front-face card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-          <%= link_to list.name, list_path(list) %>
+          <%= link_to list.name, list_path(list), class: "text-decoration-none text-light" %>
         </div>
-        <div class="card back-face card-category" style="background-color: yellow;">
-          <h1>this is the back</h1>
+        <div class="card back-face card-category" style="background-color: #f4f4f4;">
+          <%= link_to list.name, list_path(list), class: "text-decoration-none text-light" %>
+            <ul>
+              <% list.bookmarks.each do |bookmark| %>
+                <li><%= bookmark.movie.title %></li>
+              <% end %>
+            </ul>
         </div>
       </div>
-
       <% end %>
-
+    <div class="card card-category wrapper">
+    <p class="anchor" id="new-list-form"></p>
+    <h1>New List</h1>
+      <%= simple_form_for @list do |f| %>
+        <%= f.input :name %>
+        <%= f.input :photo, as: :file %>
+        <%= f.submit %>
+      <% end %>
+    </div>
   </div>
-
-  <p class="anchor" id="new-list-form"></p>
-  <h2 >New List</h2>
-  <%= simple_form_for @list do |f| %>
-    <%= f.input :name %>
-    <%= f.submit %>
-  <% end %>
-
-
-
 </div>
 
 
