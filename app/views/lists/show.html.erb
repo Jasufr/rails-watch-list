@@ -1,7 +1,7 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @list.photo.attached? ? cl_image_path(@list.photo.key, crop: :fill) : image_path('https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg') %>)">
   <div class="container text-light">
     <h1><%= @list.name %><h1>
-    <%= @list.bookmarks.count %>
+    <p><%= @list.bookmarks.count %> movies</p>
   </div>
 </div>
 
