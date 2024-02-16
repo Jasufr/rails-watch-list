@@ -27,10 +27,10 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 24px;
 }
-::selection {
-  color: #fff;
-  background: #1cc7d0;
-}
+// .card::selection {
+//   color: #fff;
+//   background: #1cc7d0;
+// }
 
 .wrapper {
   height: 450px;
@@ -44,8 +44,8 @@
   position: absolute;
   height: 100%;
   width: 100%;
-  padding: 5px;
-  background: #fff;
+  padding: 1.5rem;
+  // background: #fff;
   border-radius: 10px;
   transform: translateY(0deg);
   transform-style: preserve-3d;
@@ -69,7 +69,19 @@
 .wrapper:hover>.back-face {
   transform: rotateY(0deg);
 }
-
+.back-face {
+  background-color: rgba(0,0,0,.8);
+}
+.back-face ul {
+  font-size: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+.new-list-card {
+  background-color: rgba(100, 70, 40, 0.4);
+}
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {

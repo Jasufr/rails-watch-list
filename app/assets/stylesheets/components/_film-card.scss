@@ -1,0 +1,58 @@
+.film-grid {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  place-items: center;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 24px;
+}
+
+.card-film {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  height: 400px;
+}
+
+.card-film > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-film h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-film p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-film {
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+
+  .card-film-infos {
+    flex-direction: column;
+    display: flex;
+    padding: 16px;
+    justify-content: space-between;
+    flex-grow: 1;
+
+  }
+
+  .card-film-infos p {
+    flex-grow: 1;
+    padding: 10px 0px;
+  }
+}
+
+.new-bookmark {
+  background-color: rgba(100, 70, 40, 0.4);
+}

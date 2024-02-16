@@ -1,19 +1,43 @@
-<%= @list.name %>
-<ul>
-  <% @list.bookmarks.each do |bookmark| %>
-    <li>
-      <%= bookmark.comment %><%= bookmark.movie.title %>
-      <img src="<%= bookmark.movie.poster_url %>" alt="Movie Poster">
-      <%= link_to bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-        <button>Delete</button>
-      <% end %>
-      <%=  %>
-    </li>
-  <% end %>
-</ul>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @list.photo.attached? ? cl_image_path(@list.photo.key, crop: :fill) : image_path('https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg') %>)">
+  <div class="container text-light">
+    <h1><%= @list.name %><h1>
+    <%= @list.bookmarks.count %>
+  </div>
+</div>
 
-<%= simple_form_for [@list, @bookmark] do |f| %>
-    <%= f.input :comment %>
-    <%= f.association :movie, collection: Movie.order(:title), prompt: "Choose a Movie" %>
-    <%= f.submit %>
-<% end %>
+<div class="container my-5">
+  <div class="film-grid">
+    <% @list.bookmarks.each do |bookmark| %>
+      <div class="card-film">
+        <img src="<%= bookmark.movie.poster_url %>" alt="Movie Poster">
+        <div class="card-film-infos">
+            <h2><%= bookmark.movie.title %>・<%= bookmark.movie.rating %></h2>
+            <p><%= bookmark.movie.overview %></p>
+            <div class="d-flex flex-row justify-content-between">
+              <%= bookmark.comment %>
+              <%= link_to bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+                <button class="btn btn-warning text-light">Delete</button>
+              <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="card-film new-bookmark">
+    <div class="card-film-infos">
+      <%= simple_form_for [@list, @bookmark] do |f| %>
+      <h2 class="mb-3">New Bookmark</h2>
+              <%= f.input :comment %>
+              <%= f.association :movie, collection: Movie.order(:title), prompt: "Choose a Movie" %>
+              <%= f.submit class: "btn btn-warning text-light w-100 my-5" %>
+          <% end %>
+    </div>
+
+  </div>
+  </div>
+</div>
+
+<div class="container">
+
+
+</div>

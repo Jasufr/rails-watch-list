@@ -11,10 +11,10 @@
 
       <% @lists.each do |list| %>
       <div class="wrapper">
-        <div class="card front-face card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+        <div class="card front-face card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.photo.attached? ? cl_image_path(list.photo.key, crop: :fill) : image_path('https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg') %>)">
           <%= link_to list.name, list_path(list), class: "text-decoration-none text-light" %>
         </div>
-        <div class="card back-face card-category" style="background-color: #f4f4f4;">
+        <div class="card back-face card-category">
           <%= link_to list.name, list_path(list), class: "text-decoration-none text-light" %>
             <ul>
               <% list.bookmarks.each do |bookmark| %>
@@ -24,13 +24,13 @@
         </div>
       </div>
       <% end %>
-    <div class="card card-category wrapper">
+    <div class="card card-category wrapper p-4 new-list-card">
     <p class="anchor" id="new-list-form"></p>
-    <h1>New List</h1>
+    <p>New List</p>
       <%= simple_form_for @list do |f| %>
         <%= f.input :name %>
         <%= f.input :photo, as: :file %>
-        <%= f.submit %>
+        <%= f.submit class: "btn btn-warning w-100 my-3" %>
       <% end %>
     </div>
   </div>
