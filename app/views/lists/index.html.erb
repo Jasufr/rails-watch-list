@@ -16,9 +16,12 @@
         <div class="card back-face card-category">
           <%= link_to list_path(list), class:"card-link" do %>
             <%= link_to list.name, list_path(list), class: "text-decoration-none text-light" %>
-            <ul>
-              <% list.bookmarks.each do |bookmark| %>
+            <ul class="listcard-movie-list">
+              <% list.bookmarks.take(6).each do |bookmark| %>
                 <li><%= bookmark.movie.title %></li>
+              <% end %>
+              <% if list.bookmarks.size > 6 %>
+                <li class="ellipsis">...</li>
               <% end %>
             </ul>
           <% end %>
