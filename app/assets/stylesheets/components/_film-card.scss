@@ -7,10 +7,16 @@
   grid-gap: 24px;
 }
 
+@media (max-width: 576px) {
+  .film-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .card-film {
   overflow: hidden;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 4px 4px 8px rgba(0,0,0,0.3);
   height: 400px;
 }
 
@@ -41,18 +47,45 @@
   .card-film-infos {
     flex-direction: column;
     display: flex;
-    padding: 16px;
-    justify-content: space-between;
+    padding: 8px;
+    // justify-content: space-between;
     flex-grow: 1;
+    position: relative;
 
   }
 
-  .card-film-infos p {
+  .card-film-infos .movie-overview {
     flex-grow: 1;
     padding: 10px 0px;
+    max-height: 120px;
+    overflow-y: scroll;
+    padding: 8px;
+  }
+
+  .card-film-infos .movie-comment {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    opacity: 1;
   }
 }
 
 .new-bookmark {
   background-color: rgba(100, 70, 40, 0.4);
+  padding: 8px;
+  position: relative;
+}
+
+.delete-btn {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  padding: 3px 6px;
+  font-size: 14px;
+}
+
+.add-movie-btn {
+  position: absolute;
+  bottom: 5px;
+  right: 0px;
 }

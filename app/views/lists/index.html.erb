@@ -8,27 +8,26 @@
 <div class="container">
   <h1 class="my-4">All your lists:</h1>
   <div class="cards">
-
-      <% @lists.each do |list| %>
+    <% @lists.each do |list| %>
       <div class="wrapper">
-      <%= link_to list_path(list) do %>
-        <div class="card front-face card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.photo.attached? ? cl_image_path(list.photo.key, crop: :fill) : image_path('https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg') %>)">
+        <div class="card front-face card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.photo.attached? ? cl_image_path(list.photo.key, crop: :fill) : image_path('https://static.vecteezy.com/system/resources/previews/029/783/698/large_2x/movie-night-at-home-cozy-intimate-casual-comfortable-romantic-free-photo.jpg') %>)">
           <%= link_to list.name, list_path(list), class: "text-decoration-none text-light" %>
         </div>
         <div class="card back-face card-category">
-          <%= link_to list.name, list_path(list), class: "text-decoration-none text-light" %>
+          <%= link_to list_path(list), class:"card-link" do %>
+            <%= link_to list.name, list_path(list), class: "text-decoration-none text-light" %>
             <ul>
               <% list.bookmarks.each do |bookmark| %>
                 <li><%= bookmark.movie.title %></li>
               <% end %>
             </ul>
+          <% end %>
         </div>
-        <% end %>
       </div>
-      <% end %>
+    <% end %>
     <div class="card card-category wrapper p-4 new-list-card">
-    <p class="anchor" id="new-list-form"></p>
-    <p>New List</p>
+      <p class="anchor" id="new-list-form"></p>
+      <p>New List</p>
       <%= simple_form_for @list do |f| %>
         <%= f.input :name %>
         <%= f.input :photo, as: :file %>
@@ -37,12 +36,3 @@
     </div>
   </div>
 </div>
-
-
-  <%# <div class="cards">
-    <% @lists.each do |list| %>
-      <%# <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)"> %>
-        <%# <%= link_to list.name, list_path(list) %>
-      <%# </div> %>
-    <%# <% end %>
-  <%# </div> %>
