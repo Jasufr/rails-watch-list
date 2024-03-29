@@ -2,7 +2,7 @@
   <div class="container text-light">
     <h1><%= @list.name %>
       <h1>
-        <p><%= @list.bookmarks.count %> movies</p>
+        <p><%= @list.bookmarks.count %> <%= @list.bookmarks.count == 1 ? "movie" : "movies" %></p>
       </div>
     </div>
     <div class="container my-5">
