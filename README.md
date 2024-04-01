@@ -1,24 +1,39 @@
-# README
+# YourMovieList 📽️
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rails project to create Watch lists.
+The movies in the database are from the TMDB API.
 
-Things you may want to cover:
+![Capture d'écran 2024-04-01 152716](https://github.com/Jasufr/rails-watch-list/assets/125636129/1114b47e-e212-49d5-887d-a3e7282de8b8)
+![Capture d'écran 2024-04-01 152914](https://github.com/Jasufr/rails-watch-list/assets/125636129/63ef83f5-e39e-4ec3-9fb7-9a3da5d02987)
 
-* Ruby version
+<br>
 
-* System dependencies
+## Getting Started
+### Setup
 
-* Configuration
+Install gems
+```
+bundle install
+```
 
-* Database creation
+### ENV Variables
+Create `.env` file
+```
+touch .env
+```
+Inside `.env`, set these variables. For any APIs, see group Slack channel.
+```
+CLOUDINARY_URL=your_own_cloudinary_url_key
+```
 
-* Database initialization
+### DB Setup
+```
+rails db:create
+rails db:migrate
+rails db:seed
+```
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Run a server
+```
+rails s
+```
