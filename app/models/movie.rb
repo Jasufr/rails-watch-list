@@ -1,5 +1,6 @@
 class Movie < ApplicationRecord
-  has_many :bookmarks
+  self.table_name = "yml_movies"
+  has_many :bookmarks, foreign_key: "yml_movie_id"
 
   validates :title, presence: true, uniqueness: true
   validates :overview, presence: true
